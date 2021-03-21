@@ -141,7 +141,7 @@ module Akami
         wsu_timestamp_hash = signature.wsu_timestamp_hash
         sig["wsse:Security"]["wsu:Timestamp"] = wsu_timestamp_hash["wsu:Timestamp"] # attributes should be merged and not overridden
         sig["wsse:Security"][:attributes!].merge!(wsu_timestamp_hash[:attributes!])
-        sig["wsse:Security"][:order!] << "wsu:Timestamp"
+        sig["wsse:Security"][:order!].unshift "wsu:Timestamp"
       end
 
       sig
